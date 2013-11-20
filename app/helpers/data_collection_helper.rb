@@ -1,0 +1,2 @@
+module DataCollectionHelper
+end

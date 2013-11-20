@@ -1,0 +1,2 @@
+class SoilmoistureController < ApplicationController
+end

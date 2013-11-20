@@ -1,0 +1,21 @@
+<h1><%= @site.name %></h1>
+
+<div class='graph'></div>
+
+<%= div_for @site.collection_points do |point| %>
+    <h2>Collection Point: <%= point.name %></h2>
+
+    <%= div_for point.soilmoistures.order("created_at DESC") do |soil| %>
+        <i><%= soil.created_at %></i>
+        <ul>
+            <li class='blue'>Depth A: <%= soil.deptha %></li>
+            <li class='green'>Depth B: <%= soil.depthb %></li>
+            <li class='red'>Deptch C: <%= soil.depthc %></li>
+        </ul>
+    <% end %>
+
+<% end %>
+
+<%=javascript_tag do %>
+    var siteId = <%= @site.id %>
+<% end %>

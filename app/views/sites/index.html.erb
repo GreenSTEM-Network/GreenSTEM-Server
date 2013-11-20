@@ -1,0 +1,4 @@
+<h1>Sites</h1>
+<% @sites.each do |site| %>
+    <div><%= link_to site.name, data_collections_path(site.id) %></div>
+<% end %>

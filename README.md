@@ -18,13 +18,10 @@ login with user@example.com/changeme
 Usage
 -----------
 
-To POST soil moisture data to the database, execute this `curl` request:
+To POST node data to the database, execute this `curl` request:
 
-curl -v -H "Content-Type: application/json" -X POST -d '{"type":"soilmoisture", "data":{"collection_point_id":1,"collection_time":"2013-03-08 08:58AM","deptha":1,"depthb":1.2,"depthc":1.9}}' 'http://localhost:3000/dc/'
+curl -v -H "Content-Type: application/json" -X POST -d '{"site_id":"1","node_readings":[{"id":"1","timestamp":"2013-12-07 04:05:06","channel":"001","soil1":"1.2","soil2":"1.3","soil3":"1.4","temp":"58","voltage":"1.4"}]}' 'http://localhost:3000/dc/'
 
-Each soil moisture data bundle belongs to a `collection point`, which belongs to a `site`. You can navigate through this heirarchy from the the home page.
-
-Each `site` has a page that displayes `collection points` and `soilmoisture` data bundles. Add `.json` to the `site` URL get request to return a JSON object representation of that site's data, i.e. `http://localhost:3000/sites/1.json`
 
 This can be used to generate graphs and visualizations.
 

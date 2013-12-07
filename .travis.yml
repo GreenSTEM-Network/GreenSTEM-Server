@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+- 2.0.0
+before_install:
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+services: mongodb
+script: bundle exec rspec spec

@@ -8,7 +8,6 @@ end
 
 group :test, :development do
     gem 'sqlite3'
-    gem 'debugger'
 end
 
 group :test do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307181706) do
+ActiveRecord::Schema.define(:version => 20131207141724) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -26,6 +26,30 @@ ActiveRecord::Schema.define(:version => 20130307181706) do
     t.integer  "collection_point_id"
     t.datetime "collection_time"
   end
+
+  create_table "node_readings", :force => true do |t|
+    t.datetime "collection_time"
+    t.integer  "node_id"
+    t.integer  "soil1"
+    t.integer  "soil2"
+    t.integer  "soil3"
+    t.integer  "temp"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "node_readings", ["node_id"], :name => "index_node_readings_on_node_id"
+
+  create_table "nodes", :force => true do |t|
+    t.integer  "channel"
+    t.string   "project_type"
+    t.integer  "voltage"
+    t.integer  "site_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "nodes", ["site_id"], :name => "index_nodes_on_site_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

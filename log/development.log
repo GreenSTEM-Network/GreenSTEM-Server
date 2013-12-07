@@ -1,0 +1,388 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (13.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (7.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to DeviseCreateUsers (20120418171104)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120418171104')[0m
+  [1m[35m (3.2ms)[0m  commit transaction
+Migrating to RolifyCreateRoles (20120418171110)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "resource_id" integer, "resource_type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users_roles" ("user_id" integer, "role_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE INDEX "index_roles_on_name" ON "roles" ("name")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_roles_on_name_and_resource_type_and_resource_id" ON "roles" ("name", "resource_type", "resource_id")[0m
+  [1m[35m (0.6ms)[0m  CREATE INDEX "index_users_roles_on_user_id_and_role_id" ON "users_roles" ("user_id", "role_id")
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120418171110')[0m
+  [1m[35m (5.0ms)[0m  commit transaction
+Migrating to AddNameToUsers (20120418171112)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.4ms)[0m  ALTER TABLE "users" ADD "name" varchar(255)
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120418171112')[0m
+  [1m[35m (3.5ms)[0m  commit transaction
+Migrating to CreateRailsAdminHistoriesTable (20130223183533)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (6.4ms)[0m  CREATE TABLE "rails_admin_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" text, "username" varchar(255), "item" integer, "table" varchar(255), "month" integer(2), "year" integer(5), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_rails_admin_histories" ON "rails_admin_histories" ("item", "table", "month", "year")[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130223183533')
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSites (20130223185954)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "zipcode" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130223185954')
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDataCollections (20130223192421)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collected_date" datetime, "soil_moisture_low" decimal, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130223192421')
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddSiteIdToDataCollection (20130223202636)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (5.7ms)[0m  [1mALTER TABLE "data_collections" ADD "site_id" int[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130223202636')
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to MakeDataCollectionMoreGeneral (20130301000412)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collected_date" datetime, "soil_moisture_low" decimal, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (2.2ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (3.9ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_low" decimal, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_low" decimal, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_medium" decimal, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "soil_moisture_high" decimal, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "temperature" decimal, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sunlight" decimal, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "waterlevel" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "site_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "data_collections"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "data_collections"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "altered_data_collections"[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "altered_data_collections"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130301000412')[0m
+  [1m[35m (4.5ms)[0m  commit transaction
+Migrating to CreateSoilmoistures (20130301003201)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (7.1ms)[0m  CREATE TABLE "soilmoistures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "deptha" float, "depthb" float, "depthc" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130301003201')[0m
+  [1m[35m (3.0ms)[0m  commit transaction
+Migrating to CreateCollectionPoints (20130307175916)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "collection_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130307175916')[0m
+  [1m[35m (3.7ms)[0m  commit transaction
+Migrating to AddCollectionPointToDataCollection (20130307180327)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (3.6ms)[0m  ALTER TABLE "data_collections" ADD "collection_point_id" integer
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130307180327')[0m
+  [1m[35m (3.9ms)[0m  commit transaction
+Migrating to AddTimeToDataCollection (20130307180959)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (6.0ms)[0m  ALTER TABLE "data_collections" ADD "collection_time" datetime
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130307180959')[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+Migrating to AddParamsToSoilMoisture (20130307181706)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (4.6ms)[0m  ALTER TABLE "soilmoistures" ADD "collection_point_id" integer
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "soilmoistures" ADD "collection_time" datetime[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130307181706')
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mRole Load (2.2ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'admin' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (20.0ms)[0m  INSERT INTO "roles" ("created_at", "name", "resource_id", "resource_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["name", "admin"], ["resource_id", nil], ["resource_type", nil], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00]]
+  [1m[36m (10.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRole Load (2.2ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'user' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO "roles" ("created_at", "name", "resource_id", "resource_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["name", "user"], ["resource_id", nil], ["resource_type", nil], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRole Load (2.5ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."name" = 'VIP' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "roles" ("created_at", "name", "resource_id", "resource_type", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["name", "VIP"], ["resource_id", nil], ["resource_type", nil], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$10$SZv/2TQj7CynmkDl68jyn.76UFE.VhD2V9hEuMoq.nMe69sFe2Rve"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "First User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36mRole Load (2.4ms)[0m  [1mSELECT "roles".* FROM "roles" WHERE "roles"."name" = 'admin' AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL LIMIT 1[0m
+  [1m[35mRole Exists (1.6ms)[0m  SELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND "roles"."id" = 1 LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1[0m
+  [1m[35mRole Load (2.7ms)[0m  SELECT "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (2.3ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (4.6ms)[0m  [1mINSERT INTO "users_roles" ("user_id", "role_id") VALUES (1, 1)[0m
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mSite Load (2.6ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."name" = 'Drexel URBN Center' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "sites" ("address", "created_at", "description", "name", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?)[0m  [["address", "3501 Market Street"], ["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["description", "This is a test site at the TechCamp hackathon"], ["name", "Drexel URBN Center"], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["zipcode", 19104]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36mSite Load (1.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."name" = 'Drexel URBN Center' LIMIT 1[0m
+  [1m[35mCollectionPoint Load (2.1ms)[0m  SELECT "collection_points".* FROM "collection_points" WHERE "collection_points"."name" = 'Orion' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "collection_points" ("created_at", "name", "site_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00], ["name", "Orion"], ["site_id", 1], ["updated_at", Fri, 06 Dec 2013 17:25:14 UTC +00:00]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 33.33.33.1 at 2013-12-06 17:25:25 +0000
+Processing by HomeController#index as HTML
+  [1m[36mSite Load (1.3ms)[0m  [1mSELECT "sites".* FROM "sites" [0m
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Compiled bootstrap_and_overrides.css  (2935ms)  (pid 4566)
+Compiled data_collection.css  (8ms)  (pid 4566)
+Compiled home.css  (5ms)  (pid 4566)
+Compiled sites.css  (8ms)  (pid 4566)
+Compiled soilmoisture.css  (8ms)  (pid 4566)
+Compiled styles.css  (12ms)  (pid 4566)
+Compiled application.css  (3447ms)  (pid 4566)
+Compiled jquery.js  (5ms)  (pid 4566)
+Compiled jquery_ujs.js  (0ms)  (pid 4566)
+Compiled bootstrap-transition.js  (0ms)  (pid 4566)
+Compiled bootstrap-affix.js  (0ms)  (pid 4566)
+Compiled bootstrap-alert.js  (68ms)  (pid 4566)
+Compiled bootstrap-button.js  (0ms)  (pid 4566)
+Compiled bootstrap-carousel.js  (0ms)  (pid 4566)
+Compiled bootstrap-collapse.js  (0ms)  (pid 4566)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 4566)
+Compiled bootstrap-modal.js  (0ms)  (pid 4566)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 4566)
+Compiled bootstrap-tab.js  (0ms)  (pid 4566)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 4566)
+Compiled bootstrap-popover.js  (0ms)  (pid 4566)
+Compiled bootstrap-typeahead.js  (0ms)  (pid 4566)
+Compiled bootstrap.js  (773ms)  (pid 4566)
+Compiled data_collection.js  (215ms)  (pid 4566)
+Compiled graph_soil_moisture.js  (3ms)  (pid 4566)
+Compiled home.js  (119ms)  (pid 4566)
+Compiled sites.js  (118ms)  (pid 4566)
+Compiled soilmoisture.js  (211ms)  (pid 4566)
+Compiled d3.js  (10ms)  (pid 4566)
+Compiled application.js  (2010ms)  (pid 4566)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 6556ms (Views: 6469.9ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-06 17:25:37 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.3ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCollectionPoint Load (2.2ms)[0m  [1mSELECT "collection_points".* FROM "collection_points" WHERE "collection_points"."site_id" = 1[0m
+  [1m[35mSoilmoisture Load (2.7ms)[0m  SELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1
+  [1m[36mSoilmoisture Load (2.2ms)[0m  [1mSELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1 ORDER BY created_at DESC[0m
+  Rendered sites/show.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 350ms (Views: 223.6ms | ActiveRecord: 13.7ms)
+
+
+Started POST "/dc/" for 33.33.33.1 at 2013-12-06 17:26:23 +0000
+Processing by DataCollectionController#submit as */*
+  Parameters: {"type"=>"soilmoisture", "data"=>{"collection_point_id"=>1, "collection_time"=>"2013-03-08 08:58AM", "deptha"=>1, "depthb"=>1.2, "depthc"=>1.9}, "data_collection"=>{}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (11.6ms)[0m  [1mINSERT INTO "soilmoistures" ("collection_point_id", "collection_time", "created_at", "deptha", "depthb", "depthc", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["collection_point_id", 1], ["collection_time", Fri, 08 Mar 2013 08:58:00 UTC +00:00], ["created_at", Fri, 06 Dec 2013 17:26:23 UTC +00:00], ["deptha", 1.0], ["depthb", 1.2], ["depthc", 1.9], ["updated_at", Fri, 06 Dec 2013 17:26:23 UTC +00:00]]
+  [1m[35m (10.3ms)[0m  commit transaction
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-06 17:26:30 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (2.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCollectionPoint Load (1.9ms)[0m  SELECT "collection_points".* FROM "collection_points" WHERE "collection_points"."site_id" = 1
+  [1m[36mSoilmoisture Load (1.3ms)[0m  [1mSELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1[0m
+  [1m[35mSoilmoisture Load (2.0ms)[0m  SELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1 ORDER BY created_at DESC
+  Rendered sites/show.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 156ms (Views: 144.9ms | ActiveRecord: 7.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 33.33.33.1 at 2013-12-07 14:01:38 +0000
+Processing by HomeController#index as HTML
+  [1m[36mSite Load (2.7ms)[0m  [1mSELECT "sites".* FROM "sites" [0m
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 882ms (Views: 764.8ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 14:01:44 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.6ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCollectionPoint Load (2.0ms)[0m  [1mSELECT "collection_points".* FROM "collection_points" WHERE "collection_points"."site_id" = 1[0m
+  [1m[35mSoilmoisture Load (2.4ms)[0m  SELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1
+  [1m[36mSoilmoisture Load (2.2ms)[0m  [1mSELECT "soilmoistures".* FROM "soilmoistures" WHERE "soilmoistures"."collection_point_id" = 1 ORDER BY created_at DESC[0m
+  Rendered sites/show.html.erb within layouts/application (22.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 424ms (Views: 222.5ms | ActiveRecord: 14.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20120418171104)
+Migrating to RolifyCreateRoles (20120418171110)
+Migrating to AddNameToUsers (20120418171112)
+Migrating to CreateRailsAdminHistoriesTable (20130223183533)
+Migrating to CreateSites (20130223185954)
+Migrating to CreateDataCollections (20130223192421)
+Migrating to AddSiteIdToDataCollection (20130223202636)
+Migrating to MakeDataCollectionMoreGeneral (20130301000412)
+Migrating to CreateSoilmoistures (20130301003201)
+Migrating to CreateCollectionPoints (20130307175916)
+Migrating to AddCollectionPointToDataCollection (20130307180327)
+Migrating to AddTimeToDataCollection (20130307180959)
+Migrating to AddParamsToSoilMoisture (20130307181706)
+Migrating to CreateNodes (20131207140427)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "channel" integer, "project_type" varchar(255), "voltage" integer, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE INDEX "index_nodes_on_site_id" ON "nodes" ("site_id")[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20131207140427')
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (2.0ms)[0m  select sqlite_version(*)
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "collection_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "collection_point_id" integer, "collection_time" datetime) 
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "channel" integer, "project_type" varchar(255), "voltage" integer, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (4.9ms)[0m  CREATE INDEX "index_nodes_on_site_id" ON "nodes" ("site_id")
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "rails_admin_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" text, "username" varchar(255), "item" integer, "table" varchar(255), "month" integer(2), "year" integer(5), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (7.9ms)[0m  CREATE INDEX "index_rails_admin_histories" ON "rails_admin_histories" ("item", "table", "month", "year")
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "resource_id" integer, "resource_type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (6.7ms)[0m  CREATE INDEX "index_roles_on_name_and_resource_type_and_resource_id" ON "roles" ("name", "resource_type", "resource_id")
+  [1m[36m (5.3ms)[0m  [1mCREATE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35m (5.3ms)[0m  CREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "zipcode" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (5.7ms)[0m  [1mCREATE TABLE "soilmoistures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "deptha" float, "depthb" float, "depthc" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "collection_point_id" integer, "collection_time" datetime) [0m
+  [1m[35m (9.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255)) 
+  [1m[36m (5.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (5.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "users_roles" ("user_id" integer, "role_id" integer) [0m
+  [1m[35m (6.2ms)[0m  CREATE INDEX "index_users_roles_on_user_id_and_role_id" ON "users_roles" ("user_id", "role_id")
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (5.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (1.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (5.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131207140427')
+  [1m[36m (5.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120418171104')[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120418171110')
+  [1m[36m (7.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120418171112')[0m
+  [1m[35m (7.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130223183533')
+  [1m[36m (9.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130223185954')[0m
+  [1m[35m (5.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130223192421')
+  [1m[36m (7.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130223202636')[0m
+  [1m[35m (6.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130301000412')
+  [1m[36m (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130301003201')[0m
+  [1m[35m (5.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130307175916')
+  [1m[36m (6.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307180327')[0m
+  [1m[35m (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130307180959')
+  [1m[36m (5.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307181706')[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20120418171104)
+Migrating to RolifyCreateRoles (20120418171110)
+Migrating to AddNameToUsers (20120418171112)
+Migrating to CreateRailsAdminHistoriesTable (20130223183533)
+Migrating to CreateSites (20130223185954)
+Migrating to CreateDataCollections (20130223192421)
+Migrating to AddSiteIdToDataCollection (20130223202636)
+Migrating to MakeDataCollectionMoreGeneral (20130301000412)
+Migrating to CreateSoilmoistures (20130301003201)
+Migrating to CreateCollectionPoints (20130307175916)
+Migrating to AddCollectionPointToDataCollection (20130307180327)
+Migrating to AddTimeToDataCollection (20130307180959)
+Migrating to AddParamsToSoilMoisture (20130307181706)
+Migrating to CreateNodes (20131207140427)
+Migrating to CreateNodeReadings (20131207141724)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (5.8ms)[0m  CREATE TABLE "node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" integer, "soil2" integer, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_node_readings_on_node_id" ON "node_readings" ("node_id")[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20131207141724')
+  [1m[36m (11.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (2.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (1.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (2.7ms)[0m  select sqlite_version(*)
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "collection_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" text, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "data_collections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "collection_point_id" integer, "collection_time" datetime) 
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" integer, "soil2" integer, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (4.6ms)[0m  CREATE INDEX "index_node_readings_on_node_id" ON "node_readings" ("node_id")
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "nodes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "channel" integer, "project_type" varchar(255), "voltage" integer, "site_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (10.0ms)[0m  CREATE INDEX "index_nodes_on_site_id" ON "nodes" ("site_id")
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "rails_admin_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" text, "username" varchar(255), "item" integer, "table" varchar(255), "month" integer(2), "year" integer(5), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (7.0ms)[0m  CREATE INDEX "index_rails_admin_histories" ON "rails_admin_histories" ("item", "table", "month", "year")
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "resource_id" integer, "resource_type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (5.0ms)[0m  CREATE INDEX "index_roles_on_name_and_resource_type_and_resource_id" ON "roles" ("name", "resource_type", "resource_id")
+  [1m[36m (5.8ms)[0m  [1mCREATE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "address" varchar(255), "zipcode" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (9.8ms)[0m  [1mCREATE TABLE "soilmoistures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "deptha" float, "depthb" float, "depthc" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "collection_point_id" integer, "collection_time" datetime) [0m
+  [1m[35m (9.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar(255)) 
+  [1m[36m (5.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "users_roles" ("user_id" integer, "role_id" integer) [0m
+  [1m[35m (6.4ms)[0m  CREATE INDEX "index_users_roles_on_user_id_and_role_id" ON "users_roles" ("user_id", "role_id")
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (5.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (1.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (6.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131207141724')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120418171104')[0m
+  [1m[35m (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120418171110')
+  [1m[36m (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120418171112')[0m
+  [1m[35m (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130223183533')
+  [1m[36m (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130223185954')[0m
+  [1m[35m (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130223192421')
+  [1m[36m (6.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130223202636')[0m
+  [1m[35m (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130301000412')
+  [1m[36m (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130301003201')[0m
+  [1m[35m (6.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130307175916')
+  [1m[36m (5.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307180327')[0m
+  [1m[35m (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130307180959')
+  [1m[36m (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307181706')[0m
+  [1m[35m (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131207140427')

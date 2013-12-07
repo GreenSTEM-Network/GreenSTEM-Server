@@ -16,6 +16,7 @@ group :test do
     gem 'database_cleaner'
     gem "rspec-rails", "~> 2.0"
     gem 'factory_girl'
+    gem 'shoulda'
 end
 
 group :production do

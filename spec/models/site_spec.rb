@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Site do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should have_many :nodes }
+  it { should have_many :node_readings }
 end

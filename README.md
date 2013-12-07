@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SolarSunflowerProject/Server.png?branch=master)](https://travis-ci.org/SolarSunflowerProject/Server)
+
 Server
 ======
 

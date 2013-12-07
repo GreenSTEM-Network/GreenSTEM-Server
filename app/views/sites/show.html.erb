@@ -2,11 +2,35 @@
 
 <div class='graph'>Cool graph coming soon</div>
 
-<% @readings.each do |reading| %>
-  <%= div_for reading do %>
-    <%= reading.inspect %>
+<div class='span7'>
+  <h2>Readings</h2>
+  <% @readings.each do |reading| %>
+    <%= div_for reading do %>
+      <ul>
+        <li>Collection Time: <strong><%= reading.collection_time %></strong></li>
+        <li>Node Id: <%= reading.node_id %></li>
+        <li>Soil 1: <%= reading.soil1.to_f %></li>
+        <li>Soil 2: <%= reading.soil2.to_f %></li>
+        <li>Soil 3: <%= reading.soil3.to_f %></li>
+        <li>Temp: <%= reading.temp %></li>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<div class='span4'>
+  <h2>Nodes</h2>
+  <% @nodes.each do |node| %>
+    <%= div_for node do %>
+      <ul>
+        <li>Node Id: <%= node.id %></li>
+        <li>Channel: <%= node.channel %></li>
+        <li>Project Type: <%= node.project_type %></li>
+        <li>Voltage: <%= node.voltage %></li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
 
 <%=javascript_tag do %>
     var siteId = <%= @site.id %>

@@ -4,19 +4,20 @@ describe DataCollectionContext do
   
   let(:site) { FactoryGirl.create(:site) }
   let(:node) { FactoryGirl.create(:node) }
+
+  describe 'collect!' do
   
-  it 'creates node readings from params' do
-    pending
-  end
-  
-  describe 'updates node voltage level' do
-    it 'from params if it is the most recently updated node_reading' do
+    it 'creates node readings from params' do
       data = sample_data(site.id, node.id)
 
       collection = DataCollectionContext.new(site, data)
 
-      expect{collection.collect!}.to change{node.node_readings.count}.by(1)
-      node.node_readings.last.soil1.should eq 1.2
+      expect{collection.collect!}.to change{node.readings.count}.by(1)
+      node.readings.last.soil1.should eq 1.2
+    end
+    
+    it 'from params if it is the most recently updated node_reading' do
+      pending "Not implemented yet"
     end
   end
 end

@@ -13,7 +13,7 @@ $(document).ready(function() {
         depthb_data = [];
         depthc_data = [];
 
-        $('div.graph').html('Loading...');
+        //$('div.graph').html('Loading...');
         $.ajax({
             type: 'GET',
             url: "http://localhost:3000/sites/" + siteId + ".json",
@@ -34,8 +34,9 @@ $(document).ready(function() {
         parse_depth_data(graph_data, deptha_data, "deptha");
         parse_depth_data(graph_data, depthb_data, "depthb");
         parse_depth_data(graph_data, depthc_data, "depthc");
-
-        draw_soil_graph(deptha_data, depthb_data, depthc_data);
+        
+        // Hold off on drawing the graph until this works
+        //draw_soil_graph(deptha_data, depthb_data, depthc_data);
 
     }
 

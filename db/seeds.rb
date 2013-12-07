@@ -26,7 +26,6 @@ end
 
 site = Site.find_by_name("Drexel URBN Center")
 
-unless CollectionPoint.find_by_name("Orion")
-    collection_point = site.collection_points.new(:name => "Orion")
-    collection_point.save
+if site.nodes.empty?
+  site.nodes.create(channel: 001, project_type: 'garden')
 end

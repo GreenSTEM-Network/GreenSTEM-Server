@@ -15,7 +15,7 @@ class DataCollectionContext
     @params['node_readings'].each do |reading|
       node = Node.find(reading['id'])
 
-      node.node_readings.create(
+      node.readings.create(
         collection_time: reading['timestamp'],
         soil1: reading['soil1'],
         soil2: reading['soil2'],

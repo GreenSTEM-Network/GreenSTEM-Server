@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207141724) do
+ActiveRecord::Schema.define(:version => 20131207150930) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20131207141724) do
   create_table "node_readings", :force => true do |t|
     t.datetime "collection_time"
     t.integer  "node_id"
-    t.integer  "soil1"
-    t.integer  "soil2"
-    t.integer  "soil3"
+    t.decimal  "soil1"
+    t.decimal  "soil2"
+    t.decimal  "soil3"
     t.integer  "temp"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

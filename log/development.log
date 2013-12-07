@@ -386,3 +386,73 @@ Connecting to database specified by database.yml
   [1m[35m (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130307180959')
   [1m[36m (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307181706')[0m
   [1m[35m (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131207140427')
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20120418171104)
+Migrating to RolifyCreateRoles (20120418171110)
+Migrating to AddNameToUsers (20120418171112)
+Migrating to CreateRailsAdminHistoriesTable (20130223183533)
+Migrating to CreateSites (20130223185954)
+Migrating to CreateDataCollections (20130223192421)
+Migrating to AddSiteIdToDataCollection (20130223202636)
+Migrating to MakeDataCollectionMoreGeneral (20130301000412)
+Migrating to CreateSoilmoistures (20130301003201)
+Migrating to CreateCollectionPoints (20130307175916)
+Migrating to AddCollectionPointToDataCollection (20130307180327)
+Migrating to AddTimeToDataCollection (20130307180959)
+Migrating to AddParamsToSoilMoisture (20130307181706)
+Migrating to CreateNodes (20131207140427)
+Migrating to CreateNodeReadings (20131207141724)
+Migrating to ChangeNodeReadingSoilsToFloats (20131207150930)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20120418171104)
+Migrating to RolifyCreateRoles (20120418171110)
+Migrating to AddNameToUsers (20120418171112)
+Migrating to CreateRailsAdminHistoriesTable (20130223183533)
+Migrating to CreateSites (20130223185954)
+Migrating to CreateDataCollections (20130223192421)
+Migrating to AddSiteIdToDataCollection (20130223202636)
+Migrating to MakeDataCollectionMoreGeneral (20130301000412)
+Migrating to CreateSoilmoistures (20130301003201)
+Migrating to CreateCollectionPoints (20130307175916)
+Migrating to AddCollectionPointToDataCollection (20130307180327)
+Migrating to AddTimeToDataCollection (20130307180959)
+Migrating to AddParamsToSoilMoisture (20130307181706)
+Migrating to CreateNodes (20131207140427)
+Migrating to CreateNodeReadings (20131207141724)
+Migrating to ChangeNodeReadingSoilsToFloats (20131207150930)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TEMPORARY TABLE "altered_node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" integer, "soil2" integer, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "temp_index_altered_node_readings_on_node_id" ON "altered_node_readings" ("node_id")[0m
+  [1m[35m (1.9ms)[0m  SELECT * FROM "node_readings"
+  [1m[36m (6.2ms)[0m  [1mDROP TABLE "node_readings"[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" decimal, "soil2" integer, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_node_readings_on_node_id" ON "node_readings" ("node_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_node_readings"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "altered_node_readings"[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" decimal, "soil2" integer, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "temp_index_altered_node_readings_on_node_id" ON "altered_node_readings" ("node_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "node_readings"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "node_readings"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" decimal, "soil2" decimal, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_node_readings_on_node_id" ON "node_readings" ("node_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_node_readings"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_node_readings"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" decimal, "soil2" decimal, "soil3" integer, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "temp_index_altered_node_readings_on_node_id" ON "altered_node_readings" ("node_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "node_readings"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "node_readings"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "node_readings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "collection_time" datetime, "node_id" integer, "soil1" decimal, "soil2" decimal, "soil3" decimal, "temp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mCREATE INDEX "index_node_readings_on_node_id" ON "node_readings" ("node_id")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_node_readings"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_node_readings"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20131207150930')
+  [1m[36m (11.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 

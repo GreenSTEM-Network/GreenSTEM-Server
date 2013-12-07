@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.0.0
+- 1.9.3-p484
 before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 services: mongodb

@@ -5,3 +5,8 @@ before_install:
 - 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
 services: mongodb
 script: bundle exec rspec spec
+deploy:
+  provider: heroku
+  api_key:
+    secure: rMV7luPmoOFCh1rOdJibM7DDmaExZfHB9KiYRgE+MsgK8F9Ur8f5VE5nBev1vh9JxeN5BCuHZEbOg4M/TiO3NPFovTxu6onVAxiPIkGN0Vpj2g4uP/JgxgvKQwHRcVPr7uATmoglBZSvDGn8qxL7xXx/+wH2KuSo4npssC6IrxI=
+  app: solarsunflower

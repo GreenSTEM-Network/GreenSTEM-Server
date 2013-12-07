@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207150930) do
+ActiveRecord::Schema.define(:version => 20131207170037) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20131207150930) do
   create_table "nodes", :force => true do |t|
     t.integer  "channel"
     t.string   "project_type"
-    t.integer  "voltage"
+    t.decimal  "voltage"
     t.integer  "site_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

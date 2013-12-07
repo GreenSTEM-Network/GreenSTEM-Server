@@ -13,11 +13,21 @@ describe DataCollectionContext do
       collection = DataCollectionContext.new(site, data)
 
       expect{collection.collect!}.to change{node.readings.count}.by(1)
-      node.readings.last.soil1.should eq 1.2
+      node_reading = node.readings.last
+      node_reading.soil1.should eq 1.2
+      node_reading.soil2.should eq 1.3
+      node_reading.soil3.should eq 1.4
+      node_reading.temp.should eq 58
+      node_reading.collection_time.should eq 'Sat, 07 Dec 2013 04:05:06 UTC +00:00'
     end
     
-    it 'from params if it is the most recently updated node_reading' do
-      pending "Not implemented yet"
+    it 'updates the jeenode voltage' do
+      data = sample_data(site.id, node.id)
+
+      DataCollectionContext.new(site, data).collect!
+
+      node.reload.voltage.to_f.should eq 1.4
+
     end
   end
 end

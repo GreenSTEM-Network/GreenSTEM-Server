@@ -22,8 +22,13 @@ class DataCollectionContext
         soil3: reading['soil3'],
         temp: reading['temp']
       )
+
+      update_voltage!(node, reading['voltage'])
     end
   end
 
+  def update_voltage!(node, voltage)
+    node.update_attributes(:voltage => voltage)
+  end
 
 end

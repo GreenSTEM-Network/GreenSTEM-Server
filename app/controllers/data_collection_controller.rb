@@ -3,12 +3,11 @@ class DataCollectionController < ApplicationController
     skip_before_filter :verify_authenticity_token
 
     def submit
-        if params[:type] == 'soilmoisture'
-            data = Soilmoisture.new(params[:data])
-            data.save!
-        end
+      site = Site.find(params[:site_id])
 
-        render :json => 'success'
+      DataCollectionContext.new(site, params).collect!
+
+      render :json => 'success'
 
     end
 

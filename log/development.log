@@ -1028,3 +1028,261 @@ Connecting to database specified by database.yml
   [1m[36m (7.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130307181706')[0m
   [1m[35m (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131207140427')
   [1m[36m (9.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131207141724')[0m
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:33:07 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.2ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (3.0ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+Completed 500 Internal Server Error in 106ms
+
+NoMethodError (undefined method `node_readings' for #<ActiveRecord::Relation:0xb5ce620>):
+  app/controllers/sites_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (58.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (69.9ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:33:16 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (2.4ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (2.3ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+Completed 500 Internal Server Error in 51ms
+
+NoMethodError (undefined method `readings' for #<ActiveRecord::Relation:0xb36cd28>):
+  app/controllers/sites_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:33:18 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (3.0ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `readings' for #<ActiveRecord::Relation:0xb517934>):
+  app/controllers/sites_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.5ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:34:04 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (1.7ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (2.6ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+Completed 500 Internal Server Error in 119ms
+
+NoMethodError (undefined method `readings' for #<ActiveRecord::Relation:0xbc1e2dc>):
+  app/controllers/sites_controller.rb:5:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.7ms)
+
+
+Started GET "/" for 33.33.33.1 at 2013-12-07 15:34:25 +0000
+Processing by HomeController#index as HTML
+  [1m[35mSite Load (2.7ms)[0m  SELECT "sites".* FROM "sites" 
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 269ms (Views: 227.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:34:28 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.6ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered sites/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 259ms (Views: 233.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:34:28 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.3ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered sites/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 274ms (Views: 270.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:34:29 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (2.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered sites/show.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 245ms (Views: 240.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:34:37 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.0ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered sites/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 215ms (Views: 210.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:35:04 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.1ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (2.7ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (1.2ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (37.7ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 254ms (Views: 243.1ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:36:12 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.2ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (2.3ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (2.3ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (40.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 342ms (Views: 257.0ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:36:48 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.6ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (2.2ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (2.3ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 237ms (Views: 226.9ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:37:11 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (2.5ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (1.6ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (1.6ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 230ms (Views: 212.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:38:19 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.6ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (2.2ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (2.2ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 235ms (Views: 225.6ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:38:38 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (1.7ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (2.3ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (2.0ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 237ms (Views: 226.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:38:44 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.2ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (2.2ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (2.4ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 272ms (Views: 262.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:38:52 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (1.3ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (1.1ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (2.2ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 222ms (Views: 213.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:40:01 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (2.2ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (1.6ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (2.5ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 215ms (Views: 204.4ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:40:07 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (1.5ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (1.2ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (1.1ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 222ms (Views: 213.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:40:46 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSite Load (1.5ms)[0m  [1mSELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mNode Load (1.5ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1
+  [1m[36mNodeReading Load (6.7ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)[0m
+  Rendered sites/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 242ms (Views: 226.7ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/sites/1" for 33.33.33.1 at 2013-12-07 15:41:04 +0000
+Processing by SitesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSite Load (1.3ms)[0m  SELECT "sites".* FROM "sites" WHERE "sites"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mNode Load (2.2ms)[0m  [1mSELECT "nodes".* FROM "nodes" WHERE "nodes"."site_id" = 1[0m
+  [1m[35mNodeReading Load (1.9ms)[0m  SELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" IN (1)
+  Rendered sites/show.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 250ms (Views: 240.7ms | ActiveRecord: 5.4ms)

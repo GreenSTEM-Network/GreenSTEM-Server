@@ -18158,3 +18158,519 @@ Completed 200 OK in 71ms (Views: 66.9ms | ActiveRecord: 2.3ms)
   [1m[36m (1.6ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
   [1m[35m (5.3ms)[0m  DELETE FROM "users_roles";
   [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+Connecting to database specified by database.yml
+  [1m[36m (3.7ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (13.7ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (9.2ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (10.4ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.6ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (7.1ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (5.2ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (5.0ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (9.4ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (7.4ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (4.7ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (4.8ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (5.2ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (8.9ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (7.8ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (5.2ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (4.6ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (6.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (7.2ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (5.5ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.2ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (8.3ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@foo.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'the_user@foo.bar.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'first.last@foo.jp' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (14.3ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (8.3ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (8.9ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (2.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (7.3ms)[0m  DELETE FROM "nodes";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (9.3ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (7.9ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (6.8ms)[0m  DELETE FROM "sites";
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (8.7ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (7.4ms)[0m  DELETE FROM "users";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (6.6ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (6.5ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (6.8ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (7.5ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (5.5ms)[0m  DELETE FROM "nodes";
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (9.2ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (6.2ms)[0m  DELETE FROM "roles";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (7.2ms)[0m  DELETE FROM "sites";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (5.5ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (8.6ms)[0m  DELETE FROM "users";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (8.5ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@foo,com' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user_at_foo.org' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'example.user@foo.' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (8.4ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (6.9ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (10.2ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (2.6ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (9.8ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (2.6ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (8.9ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (8.4ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.7ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (8.7ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (8.3ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (10.7ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$04$knHUCf4qc1ZZxSfqOulVwuwpLKrlZa2g2am3WIacxk7QZnQEsjNru"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Example User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+  [1m[36m (4.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (5.3ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (7.2ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (7.3ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (6.1ms)[0m  DELETE FROM "nodes";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (8.0ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (6.6ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (5.3ms)[0m  DELETE FROM "sites";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (6.3ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (8.5ms)[0m  DELETE FROM "users";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (7.0ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (2.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$04$KVbX2PTAtjpR0.ZeCBFvZuqLWLmXkXXiNGpjTEYT4sZtxhlp2/fxu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Example User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+  [1m[35m (5.0ms)[0m  rollback transaction
+  [1m[36m (8.3ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (6.7ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (7.8ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (6.3ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (4.9ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (4.8ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (5.6ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (6.0ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$04$hsY15fqHWAXrmd5ehCZOc.Xif5bIhiw0iF7HZmSPO20hDLLSrrlUy"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Example User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.0ms)[0m  rollback transaction
+  [1m[36m (9.1ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (6.8ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (7.6ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (6.7ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (6.9ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.0ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (9.6ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (6.0ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (7.7ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.7ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (8.6ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (7.3ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (7.8ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (6.4ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (8.0ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (9.5ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (7.6ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (7.0ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (3.2ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (7.9ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (8.4ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (6.2ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (4.7ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (4.5ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (6.5ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (5.3ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$04$ILEi86FeYZiABwEGgz04NOp0urqC3wgAA0rvSUdE6L8UZOSFrnu0."], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Example User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.9ms)[0m  rollback transaction
+  [1m[36m (8.3ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (13.5ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (5.9ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (8.0ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (10.6ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (10.3ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (7.6ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (7.7ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (10.4ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (3.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (7.6ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (2.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "user@example.com"], ["encrypted_password", "$2a$04$s4lrXHmhO8r7LICH5SRoouKiTN4pHJREJ44/rW1Ex7wdKjj4qODv2"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "Example User"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Sat, 07 Dec 2013 15:34:03 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.8ms)[0m  rollback transaction
+  [1m[36m (8.5ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (7.4ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (2.7ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (8.7ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.9ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (7.8ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (8.6ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (8.4ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (7.9ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (7.9ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (2.3ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (10.2ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (6.5ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (8.1ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (2.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (6.0ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (5.2ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (1.9ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (7.5ms)[0m  DELETE FROM "nodes";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (5.5ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (6.3ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (6.2ms)[0m  DELETE FROM "sites";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (7.0ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (2.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (6.3ms)[0m  DELETE FROM "users";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (7.9ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (2.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (6.9ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (2.5ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (7.5ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (8.9ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (5.3ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (8.6ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (7.6ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (2.4ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (5.0ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (6.0ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (7.2ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (7.4ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (2.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (6.2ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (9.2ms)[0m  DELETE FROM "nodes";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (9.0ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (2.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (9.2ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (4.7ms)[0m  DELETE FROM "sites";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (5.5ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (6.9ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (4.9ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (1.3ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (7.2ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (8.7ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (6.3ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (2.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (6.1ms)[0m  DELETE FROM "nodes";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (5.2ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (5.3ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (4.8ms)[0m  DELETE FROM "sites";
+  [1m[36m (1.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (4.4ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (7.9ms)[0m  DELETE FROM "users";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (5.3ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "sites" ("address", "created_at", "description", "name", "updated_at", "zipcode") VALUES (?, ?, ?, ?, ?, ?)  [["address", "MyString"], ["created_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00], ["description", "MyText"], ["name", "MyString"], ["updated_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00], ["zipcode", "MyString"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "nodes" ("channel", "created_at", "project_type", "site_id", "updated_at", "voltage") VALUES (?, ?, ?, ?, ?, ?)[0m  [["channel", 1], ["created_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00], ["project_type", "MyString"], ["site_id", nil], ["updated_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00], ["voltage", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "node_readings" WHERE "node_readings"."node_id" = 1[0m
+  [1m[35mNode Load (0.4ms)[0m  SELECT "nodes".* FROM "nodes" WHERE "nodes"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "node_readings" ("collection_time", "created_at", "node_id", "soil1", "soil2", "soil3", "temp", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["collection_time", Sat, 07 Dec 2013 04:05:06 UTC +00:00], ["created_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00], ["node_id", 1], ["soil1", #<BigDecimal:af7df50,'0.12E1',18(18)>], ["soil2", #<BigDecimal:af7c9c0,'0.13E1',18(18)>], ["soil3", #<BigDecimal:af808cc,'0.14E1',18(18)>], ["temp", 58], ["updated_at", Sat, 07 Dec 2013 15:34:04 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "node_readings" WHERE "node_readings"."node_id" = 1
+  [1m[36mNodeReading Load (0.1ms)[0m  [1mSELECT "node_readings".* FROM "node_readings" WHERE "node_readings"."node_id" = 1 ORDER BY "node_readings"."id" DESC LIMIT 1[0m
+  [1m[35m (11.7ms)[0m  rollback transaction
+  [1m[36m (8.5ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.2ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (8.0ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (6.1ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (5.0ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (5.7ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.3ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.7ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.5ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (5.5ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (6.6ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (2.7ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (8.3ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.2ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (6.4ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (1.6ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (7.7ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (8.8ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (2.1ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (7.4ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (9.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (7.9ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (2.8ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (6.7ms)[0m  [1mDELETE FROM "collection_points";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'collection_points';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "data_collections";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'data_collections';
+  [1m[36m (5.8ms)[0m  [1mDELETE FROM "node_readings";[0m
+  [1m[35m (1.5ms)[0m  DELETE FROM sqlite_sequence where name = 'node_readings';
+  [1m[36m (5.0ms)[0m  [1mDELETE FROM "nodes";[0m
+  [1m[35m (2.0ms)[0m  DELETE FROM sqlite_sequence where name = 'nodes';
+  [1m[36m (5.9ms)[0m  [1mDELETE FROM "rails_admin_histories";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'rails_admin_histories';
+  [1m[36m (5.8ms)[0m  [1mDELETE FROM "roles";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'roles';
+  [1m[36m (4.5ms)[0m  [1mDELETE FROM "sites";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'sites';
+  [1m[36m (5.1ms)[0m  [1mDELETE FROM "soilmoistures";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'soilmoistures';
+  [1m[36m (6.1ms)[0m  [1mDELETE FROM "users";[0m
+  [1m[35m (1.4ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+  [1m[36m (5.4ms)[0m  [1mDELETE FROM "users_roles";[0m
+  [1m[35m (1.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users_roles';
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by HomeController#index as HTML
+  [1m[35mSite Load (2.1ms)[0m  SELECT "sites".* FROM "sites" 
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 92ms (Views: 88.8ms | ActiveRecord: 2.1ms)
+  [1m[36m (1.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (24.4ms)[0m  DELETE FROM "collection_points";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'collection_points';[0m
+  [1m[35m (6.0ms)[0m  DELETE FROM "data_collections";
+  [1m[36m (1.6ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'data_collections';[0m
+  [1m[35m (5.8ms)[0m  DELETE FROM "node_readings";
+  [1m[36m (2.2ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'node_readings';[0m
+  [1m[35m (7.5ms)[0m  DELETE FROM "nodes";
+  [1m[36m (1.7ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'nodes';[0m
+  [1m[35m (5.9ms)[0m  DELETE FROM "rails_admin_histories";
+  [1m[36m (1.5ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'rails_admin_histories';[0m
+  [1m[35m (9.0ms)[0m  DELETE FROM "roles";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'roles';[0m
+  [1m[35m (5.6ms)[0m  DELETE FROM "sites";
+  [1m[36m (1.8ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'sites';[0m
+  [1m[35m (6.7ms)[0m  DELETE FROM "soilmoistures";
+  [1m[36m (2.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'soilmoistures';[0m
+  [1m[35m (5.8ms)[0m  DELETE FROM "users";
+  [1m[36m (1.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (5.2ms)[0m  DELETE FROM "users_roles";
+  [1m[36m (1.4ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'users_roles';[0m

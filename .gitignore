@@ -22,4 +22,3 @@
 *.DS_Store
 coverage
 
-config/application.yml

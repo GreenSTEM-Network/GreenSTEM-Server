@@ -6,13 +6,14 @@ The server which receives the data from the RaspberryPi, stores it, and presents
 
 Installation
 -----------
+Clone this repo and copy `config/application.yml.example` to `config/application.yml`
 
 To initialize:
 `rake db:create`
 `rake db:migrate`
 `rake db:seed`
 
-You might also want to POST some data points using the`curl` request below.
+Run `rails s` to start the local server.
 
 login with user@example.com/changeme
 

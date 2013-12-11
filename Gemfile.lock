@@ -245,6 +245,7 @@ DEPENDENCIES
   factory_girl_rails (>= 4.2.0)
   figaro (>= 0.5.3)
   jquery-rails
+  kaminari
   launchy (>= 2.2.0)
   pg
   quiet_assets (>= 1.0.1)

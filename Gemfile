@@ -42,3 +42,6 @@ gem 'rails_admin'
 gem 'thin'
 
 gem "d3-rails"
+
+# Pagination
+gem 'kaminari'

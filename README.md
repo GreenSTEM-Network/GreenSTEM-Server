@@ -15,7 +15,7 @@ To initialize:
 
 Run `rails s` to start the local server.
 
-login with user@example.com/changeme
+login with user@example.com/password1
 
 Usage
 -----------

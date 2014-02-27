@@ -11,6 +11,6 @@ GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: changeme
+ADMIN_PASSWORD: password1
 ROLES: [admin, user, VIP]
 FORECAST_IO_API_KEY: 75c4aa1436ea868421dde51e351b0e64

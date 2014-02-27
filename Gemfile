@@ -8,21 +8,21 @@ group :assets do
 end
 
 group :test, :development do
-    gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :test do
-    gem 'cucumber-rails', :require => false
-    gem 'database_cleaner'
-    gem "rspec-rails", "~> 2.0"
-    gem 'factory_girl'
-    gem 'shoulda'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem "rspec-rails", "~> 2.0"
+  gem 'factory_girl'
+  gem 'shoulda'
 end
 
 group :production do
-    gem 'pg'
+  gem 'pg'
 end
- 
+
 gem 'jquery-rails'
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "launchy", ">= 2.2.0", :group => :test
@@ -45,3 +45,9 @@ gem "d3-rails"
 
 # Pagination
 gem 'kaminari'
+
+# Allow public API access
+gem 'rack-cors', :require => 'rack/cors'
+
+# Forecast IO
+gem 'forecast_io'

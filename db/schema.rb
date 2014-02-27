@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207170037) do
+ActiveRecord::Schema.define(:version => 20140227204542) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -80,8 +80,9 @@ ActiveRecord::Schema.define(:version => 20131207170037) do
     t.text     "description"
     t.string   "address"
     t.string   "zipcode"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "weather_location_id"
   end
 
   create_table "soilmoistures", :force => true do |t|
@@ -119,5 +120,14 @@ ActiveRecord::Schema.define(:version => 20131207170037) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "weather_locations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "lat",         :precision => 9, :scale => 6
+    t.decimal  "lon",         :precision => 9, :scale => 6
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
 end

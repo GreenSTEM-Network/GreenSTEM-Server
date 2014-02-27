@@ -16,12 +16,14 @@ SolarSunflower::Application.routes.draw do
 
   get "/sites", to: 'sites#index'
 
+  get "/public/summary", to: 'summary#index'
+
   resources :sites
 
   namespace :api do
-      namespace :v1 do
-          resources :sites
-      end
+    namespace :v1 do
+      resources :sites
+    end
   end
 
 end

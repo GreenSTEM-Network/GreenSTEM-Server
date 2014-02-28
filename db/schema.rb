@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227204542) do
+ActiveRecord::Schema.define(:version => 20140228022714) do
 
   create_table "collection_points", :force => true do |t|
     t.text     "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20140227204542) do
     t.integer  "site_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "is_disabled"
   end
 
   add_index "nodes", ["site_id"], :name => "index_nodes_on_site_id"
@@ -83,6 +84,16 @@ ActiveRecord::Schema.define(:version => 20140227204542) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "weather_location_id"
+    t.integer  "soil_type_id"
+  end
+
+  create_table "soil_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "moist_threshold"
+    t.decimal  "wilting_threshold"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "soilmoistures", :force => true do |t|

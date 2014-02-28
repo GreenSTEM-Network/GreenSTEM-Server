@@ -8,7 +8,7 @@ class NodeReading < ActiveRecord::Base
   include_root_in_json = true
 
   def as_json(options = {})
-    super({methods: [:site_name, :site_id]})
+    super({methods: [:site_name, :site_id, :converted_values]})
   end
 
   def site_name
@@ -19,13 +19,19 @@ class NodeReading < ActiveRecord::Base
     node.site.id
   end
 
-  #  def self.all_latest
-  #    self.group('node_id').order('collection_time desc').first()
-  #  end
+  def soil_type
+    node.site.soil_type
+  end
 
-  #  scope :last_record_in_each_group, lambda { |name|
-  #   cond = "node_reading.id in (select top 1 max(node_reading.colle) from user_details group by user_details.user_id)"
-  #   cond << " and upper((CONCAT(first_name,' ', middle_name,' ', last_name))) like ?"
-  #   {:conditions => [cond, "%#{name.upcase}%"]}
-  # }
+  def converted_values
+    return [convert_value(soil1), convert_value(soil2), convert_value(soil3)]
+  end
+
+  def convert_value(value)
+    if(soil_type.name == 'Clay') 
+      return ((( value * 3.3 / 1024) / 0.02) * 1.8) + 32
+    else
+      return value
+    end
+  end
 end

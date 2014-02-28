@@ -5,6 +5,7 @@ class SummaryController < ApplicationController
         .order('collection_time DESC')
 
     @weather = WeatherLocation.all.map do |w|
+        #TODO Should probably cache this response: http://stackoverflow.com/questions/11308101/ruby-on-rails-how-to-cache-the-result-of-a-response-of-an-api-service
         ForecastIO.forecast(w.lat, w.lon)
     end
 

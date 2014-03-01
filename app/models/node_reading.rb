@@ -8,7 +8,7 @@ class NodeReading < ActiveRecord::Base
   include_root_in_json = true
 
   def as_json(options = {})
-    super({methods: [:site_name, :site_id, :converted_values]})
+    super({methods: [:site_name, :site_id, :converted_values, :status_names]})
   end
 
   def site_name
@@ -25,6 +25,20 @@ class NodeReading < ActiveRecord::Base
 
   def converted_values
     return [convert_value(soil1), convert_value(soil2), convert_value(soil3)]
+  end
+
+  def status_names
+    return converted_values.map do |value|
+      if node.disabled?
+        'GREY'
+      elsif value >= soil_type.moist_threshold
+        'GREEN'
+      elsif value >= soil_type.wilting_threshold
+        'YELLOW'
+      else 
+        'RED'
+      end
+    end
   end
 
   def convert_value(value)

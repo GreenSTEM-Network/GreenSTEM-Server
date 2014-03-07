@@ -12,7 +12,7 @@ class DataCollectionContext
   private
 
   def create_node_readings!
-    @params['node_readings'].each do |reading|
+    JSON.parse(@params['node_readings']).each do |reading|
       node = Node.find(reading['id'])
 
       node.readings.create(

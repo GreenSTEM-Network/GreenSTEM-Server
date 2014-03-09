@@ -79,13 +79,6 @@ SolarSunflower::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-  config.middleware.use Rack::Cors do
-    allow do
-      origins '*'
-      resource '/public/*', :headers => :any, :methods => [:get, :post, :options]
-    end
-  end
-
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

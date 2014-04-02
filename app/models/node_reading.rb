@@ -8,7 +8,7 @@ class NodeReading < ActiveRecord::Base
   include_root_in_json = true
 
   def as_json(options = {})
-    super({methods: [:site_name, :site_id, :converted_values, :status_names]})
+    super({methods: [:site_name, :site_id, :converted_values, :average_status_name, :status_names, :temp, :voltage]})
   end
 
   def site_name
@@ -23,13 +23,22 @@ class NodeReading < ActiveRecord::Base
     node.site.soil_type
   end
 
+  def voltage
+    node.voltage
+  end
+
   def converted_values
     return [convert_value(soil1), convert_value(soil2), convert_value(soil3)]
   end
 
   def status_names
     return converted_values.map do |value|
-      if node.disabled?
+      NodeReading.node_value_to_status_name(node, value, soil_type)
+    end
+  end
+
+  def self.node_value_to_status_name(node, value, soil_type)
+    if node.disabled?
         'GREY'
       elsif value >= soil_type.moist_threshold
         'GREEN'
@@ -38,14 +47,19 @@ class NodeReading < ActiveRecord::Base
       else 
         'RED'
       end
-    end
+  end
+
+  def average_status_name
+    NodeReading.node_value_to_status_name(node, converted_values.sum() / converted_values.length, soil_type)
   end
 
   def convert_value(value)
-    if(soil_type.name == 'Clay') 
-      return ((( value * 3.3 / 1024) / 0.02) * 1.8) + 32
-    else
-      return value
-    end
+    return value
+    # Not sure if we need to have different equations based on soil type, returning raw value for now
+    # if(soil_type.name == 'Clay') 
+    #   return ((( value * 3.3 / 1024) / 0.02) * 1.8) + 32
+    # else
+    #   return value
+    # end
   end
 end

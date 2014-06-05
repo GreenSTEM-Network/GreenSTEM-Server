@@ -1,39 +1,53 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <h1><%= @site.name %></h1>
-
-<div class='graph'>Cool graph coming soon</div>
-
-<div class='span7'>
-  <h2>Readings</h2>
-  <% @readings.each do |reading| %>
-    <%= div_for reading do %>
-      <ul>
-        <li>Collection Time: <strong><%= reading.collection_time %></strong></li>
-        <li>Node Id: <%= reading.node_id %></li>
-        <li>Soil 1: <%= reading.soil1.to_f %></li>
-        <li>Soil 2: <%= reading.soil2.to_f %></li>
-        <li>Soil 3: <%= reading.soil3.to_f %></li>
-        <li>Temp: <%= reading.temp %></li>
-        <li>Created at: <%= reading.created_at %></li>
-      </ul>
-    <% end %>
-  <% end %>
-  <%= paginate @readings %>
-</div>
-
-<div class='span4'>
-  <h2>Nodes</h2>
-  <% @nodes.each do |node| %>
-    <%= div_for node do %>
-      <ul>
-        <li>Node Id: <%= node.id %></li>
-        <li>Channel: <%= node.channel %></li>
-        <li>Project Type: <%= node.project_type %></li>
-        <li>Voltage: <%= node.voltage %></li>
-      </ul>
-    <% end %>
-  <% end %>
-</div>
-
-<%=javascript_tag do %>
-    var siteId = <%= @site.id %>
+<%= form_tag '', :method => :get do %>
+  <%= label_tag 'start_date', 'Start Date' %>
+  <%= datetime_field :start_date %>
+  <%= label_tag 'end_date', 'End Date' %>
+  <%= datetime_field :end_date %>
+  <%= submit_tag 'Filter' %>
 <% end %>
+<%= line_chart @graph_data %>
+<div class="row">
+  <div class="span10">
+    <h2>Readings</h2>
+    <table class="readings">
+      <thead>
+          <tr>
+              <th>Created</th>
+              <th>Node&nbsp;ID</th>
+              <th>Soil&nbsp;1</th>
+              <th>Soil&nbsp;2</th>
+              <th>Soil&nbsp;3</th>
+              <th>Temp</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @readings.each do |reading| %>
+        <tr id="node_reading_1200">
+          <td data-title="Created: "><%= reading.created_at.localtime.strftime("%m/%d/%Y %I:%M %p") %></td>
+          <td data-title="Node ID: "><%= reading.node_id %></td>
+          <td data-title="Soil 1: "><%= reading.soil1.to_f %></td>
+          <td data-title="Soil 2: "><%= reading.soil2.to_f %></td>
+          <td data-title="Soil 3: "><%= reading.soil3.to_f %></td>
+          <td data-title="Temp: "><%= reading.temp %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table> 
+    <%= paginate @readings %>
+  </div>
+  <div class="span2">
+    <h2>Nodes</h2>    
+    <% @nodes.each do |node| %>
+      <%= div_for(node, class: "node") do %>
+        <h3 class="node-title"><%= node.id %></h3>
+        <ul class="node-info">
+          <li><b>Channel:</b> <%= node.channel %></li>
+          <li><b>Project Type:</b> <%= node.project_type %></li>
+          <li><b>Voltage:</b> <%= node.voltage %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>

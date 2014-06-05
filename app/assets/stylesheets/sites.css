@@ -1,0 +1,104 @@
+// node reading styles
+
+.readings,
+.readings tbody,
+.readings tfoot,
+.readings tr,
+.readings th,
+.readings td {
+    display: block;
+}
+.readings {
+    border-top: 1px solid #CCC;
+}
+    .readings thead {
+        display: none;
+    }
+        .readings tr {
+            border-bottom: 1px solid #ccc;
+            margin: 0 -10px;
+            padding: 1em 10px;
+        }
+        .readings tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+            .readings th,
+            .readings td {
+                text-align: left;
+            }
+            .readings td {
+                border-bottom: 1px dotted #ddd;
+                padding: 0.5em 0;
+                text-align: right;
+            }
+            .readings td:last-child {
+                border-bottom: none;
+            }
+            .readings td:before {
+                content: attr(data-title);
+                float: left;
+                font-weight: bold;
+            }
+.node {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+    .node-title {
+        background-color: #ccc;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+        padding: 0.5714em; /* 8px to align with table header */
+    }
+    .node-info {
+        list-style: none;
+        margin: 0;
+        padding: 0.25em 0;
+    }
+        .node-info > li {
+            padding: 0.25em 0.5em;
+        }
+            .node-info b {
+                display: block;
+            }
+
+.pagination {
+    text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .readings {
+        border-top: 2px solid #ccc;
+        display: table;
+        width: 100%;
+    }
+        .readings thead {
+            display: table-header-group;
+        }
+        .readings tbody {
+            display: table-row-group;
+        }
+        .readings tfoot {
+            display: table-footer-group;
+        }
+            .readings tr {
+                display: table-row;
+            }
+                .readings th,
+                .readings td {
+                    display: table-cell;
+                    padding: 0.5em;
+                    text-align: left;
+                }
+                .readings th {
+                    border-bottom: 2px solid #CCC;
+                }
+                .readings td {
+                    border-bottom: 1px solid #CCC;
+                }
+                .readings td:before {
+                    content: none;
+                    display: none;
+                }
+
+}

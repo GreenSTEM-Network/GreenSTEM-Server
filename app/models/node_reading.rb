@@ -1,14 +1,18 @@
 class NodeReading < ActiveRecord::Base
-  attr_accessible :node_id, :collection_time, :soil1, :soil2, :soil3, :temp
+  attr_accessible :node_id, :created_at, :soil1, :soil2, :soil3, :temp
 
   belongs_to :node
 
-  default_scope order('collection_time DESC')
+  # default_scope order('created_at DESC')
 
   include_root_in_json = true
 
   def as_json(options = {})
-    super({methods: [:site_name, :site_id, :converted_values, :average_status_name, :status_names, :temp, :voltage]})
+    super({methods: [:site_name, :site_id, :converted_values, :average_status_name, :status_names, :temp, :voltage, :local_created_at]})
+  end
+
+  def local_created_at
+    created_at.localtime.strftime("%m/%d/%Y %I:%M %p")  
   end
 
   def site_name

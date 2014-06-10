@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 gem 'rails', '4.1.1'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails', '~> 4.0.3'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -15,7 +14,6 @@ group :test, :development do
 end
 
 group :development do
-  gem 'quiet_assets', '>= 1.0.1'
   gem 'better_errors', '>= 0.6.0'
   gem 'binding_of_caller', '>= 0.7.1'
   gem 'debugger'
@@ -33,13 +31,12 @@ gem 'pg'
 
 gem 'jquery-rails'
 gem 'bootstrap-sass', '>= 2.3.0.0'
-gem 'devise', '>= 2.2.3'
+gem 'devise', '~> 3.2.4'
 gem 'cancan', '>= 1.6.8'
 gem 'rolify', '>= 3.2.0'
-gem 'simple_form', '>= 2.0.4'
+gem 'simple_form', '~> 3.0.2'
 
-gem 'figaro', '>= 0.5.3'
-gem 'rails_admin'
+gem 'rails_admin', '~> 0.6.2'
 
 gem 'thin'
 
@@ -54,3 +51,7 @@ gem 'forecast_io'
 
 gem 'chartkick'
 gem 'groupdate'
+
+gem 'protected_attributes'
+
+gem 'webshims-rails'

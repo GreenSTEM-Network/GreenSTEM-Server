@@ -1,5 +1,13 @@
 // node reading styles
 
+main {
+    padding-bottom: 2em;
+}
+
+.readings-title {
+    display: inline-block;
+    margin-right: 0.25em;
+}
 .readings,
 .readings tbody,
 .readings tfoot,
@@ -9,13 +17,13 @@
     display: block;
 }
 .readings {
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #e5e5e5;
 }
     .readings thead {
         display: none;
     }
         .readings tr {
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #e5e5e5;
             margin: 0 -10px;
             padding: 1em 10px;
         }
@@ -39,16 +47,26 @@
                 float: left;
                 font-weight: bold;
             }
+    .readings tfoot {
+        font-weight: bold;
+    }
+.readings-filter select {
+    width: auto;
+}
+.readings-filter button {
+    margin-top: 1em;
+}
+
 .node {
-    border: 1px solid #ccc;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
 }
     .node-title {
-        background-color: #ccc;
+        background-color: #e5e5e5;
         font-size: 14px;
         line-height: 20px;
         margin: 0;
-        padding: 0.5714em; /* 8px to align with table header */
+        padding: 10px 0.5em; /* 10px used to match <legend> height */
     }
     .node-info {
         list-style: none;
@@ -66,9 +84,35 @@
     text-align: center;
 }
 
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.readings-export {
+    background-repeat: no-repeat;
+}
+.readings-export:after {
+    background-image: url(asset-path("export.svg"));
+    background-position: 0.5em center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    content: "";
+    display: inline-block;
+    height: 1em;
+    padding-left: 0.5em;
+    speak: none;
+    width: 1em;
+}
+
 @media only screen and (min-width: 600px) {
     .readings {
-        border-top: 2px solid #ccc;
+        border-top: 2px solid #e5e5e5;
         display: table;
         width: 100%;
     }
@@ -89,16 +133,37 @@
                     display: table-cell;
                     padding: 0.5em;
                     text-align: left;
-                }
-                .readings th {
-                    border-bottom: 2px solid #CCC;
-                }
-                .readings td {
-                    border-bottom: 1px solid #CCC;
+                    border-bottom: 1px solid #e5e5e5;
                 }
                 .readings td:before {
                     content: none;
                     display: none;
                 }
+                .readings .number {
+                    text-align: right;
+                }
+}
 
+@media only screen and (min-width: 980px) {
+    .readings-filter {
+        margin-bottom: 10px;
+    }
+        .readings-filter-group {
+            display: inline-block;
+            margin-right: 1em;
+        }
+            .readings-filter label,
+            .readings-filter select {
+                vertical-align: middle;
+            }
+            .readings-filter label {
+                display: inline-block;
+                font-weight: bold;
+                margin-bottom: 10px;
+                min-width: 2em;
+            }
+        .readings-filter button {
+            margin-top: 0;
+            vertical-align: top;
+        }
 }

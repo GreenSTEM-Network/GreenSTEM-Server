@@ -1,15 +1,24 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<script type="text/javascript">
+  $.webshims.setOptions('basePath', '/assets/webshims/shims/');
+  $.webshims.polyfill();
+</script>
 <h1><%= @site.name %></h1>
-<%= form_tag '', :method => :get do %>
-  <%= label_tag 'start_date', 'Start Date' %>
-  <%= datetime_field :start_date %>
-  <%= label_tag 'end_date', 'End Date' %>
-  <%= datetime_field :end_date %>
-  <%= submit_tag 'Filter' %>
+<%= form_tag '', :method => :get, :class => "readings-filter" do %>
+  <fieldset>
+    <legend>Filter</legend>
+    <div class="readings-filter-group">
+      <%= label_tag 'start_date', 'Start Date' %>
+      <%= date_field_tag :start_date, params[:start_date] %>
+      <%= label_tag 'end_date', 'End Date' %>
+      <%= date_field_tag :end_date, params[:end_date] %>
+    </div>
+    <%= submit_tag 'Filter' %>
+  </fieldset>
 <% end %>
 <%= line_chart @graph_data %>
 <div class="row">
-  <div class="span10">
+  <div class="span9">
     <h2>Readings</h2>
     <table class="readings">
       <thead>
@@ -26,14 +35,21 @@
         <% @readings.each do |reading| %>
         <tr id="node_reading_1200">
           <td data-title="Created: "><%= reading.created_at.localtime.strftime("%m/%d/%Y %I:%M %p") %></td>
-          <td data-title="Node ID: "><%= reading.node_id %></td>
-          <td data-title="Soil 1: "><%= reading.soil1.to_f %></td>
-          <td data-title="Soil 2: "><%= reading.soil2.to_f %></td>
-          <td data-title="Soil 3: "><%= reading.soil3.to_f %></td>
-          <td data-title="Temp: "><%= reading.temp %></td>
+          <td data-title="Node ID: " class="number"><%= reading.node_id %></td>
+          <td data-title="Soil 1: " class="number"><%= reading.soil1.to_f %></td>
+          <td data-title="Soil 2: " class="number"><%= reading.soil2.to_f %></td>
+          <td data-title="Soil 3: " class="number"><%= reading.soil3.to_f %></td>
+          <td data-title="Temp: " class="number"><%= reading.temp %></td>
         </tr>
         <% end %>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7">
+            <%= link_to "Export Readings", {controller: "sites", action: 'show', id: params[:id],format: "csv"}, {class: "readings-export"} %>
+          </td>
+        </tr>
+      </tfoot>
     </table> 
     <%= paginate @readings %>
   </div>

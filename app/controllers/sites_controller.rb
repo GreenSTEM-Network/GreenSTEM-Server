@@ -11,19 +11,19 @@ class SitesController < ApplicationController
 
         @site = Site.find(params[:id])
         @nodes = @site.nodes.includes(:readings)
-        @nodereadings = @nodes.map(&:readings).flatten
+        nodereadings = @nodes.map(&:readings).flatten
 
         if !start_date.nil?
-            @nodereadings.delete_if {|r| r[:created_at].to_date < start_date}
+            nodereadings.delete_if {|r| r[:created_at].to_date < start_date}
         end
 
         if !end_date.nil?
-            @nodereadings.delete_if {|r| r[:created_at].to_date > end_date}
+            nodereadings.delete_if {|r| r[:created_at].to_date > end_date}
         end
 
-        @nodereadings = @nodereadings.sort_by(&:created_at).reverse
+        nodereadings = nodereadings.sort_by(&:created_at).reverse
 
-        @readings = Kaminari.paginate_array(@nodereadings).page(params[:page]).per(30)
+        @readings = Kaminari.paginate_array(nodereadings).page(params[:page]).per(30)
 
         @graph_data = [
             {name: 'Soil 1', data: @readings.map{|r| [ r[:created_at], BigDecimal.new(r[:soil1])]}},

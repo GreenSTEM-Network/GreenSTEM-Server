@@ -34,7 +34,7 @@
       <tbody>
         <% @readings.each do |reading| %>
         <tr id="node_reading_1200">
-          <td data-title="Created: "><%= reading.created_at.localtime.strftime("%m/%d/%Y %I:%M %p") %></td>
+          <td data-title="Created: "><%= reading.local_created_at %></td>
           <td data-title="Node ID: " class="number"><%= reading.node_id %></td>
           <td data-title="Soil 1: " class="number"><%= reading.soil1.to_f %></td>
           <td data-title="Soil 2: " class="number"><%= reading.soil2.to_f %></td>

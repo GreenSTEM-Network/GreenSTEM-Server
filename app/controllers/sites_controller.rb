@@ -38,7 +38,7 @@ class SitesController < ApplicationController
                     #header
                     csv << ['CreatedAt', 'NodeId', 'Soil1', 'Soil2', 'Soil3', 'Temp']
                     #data
-                    @nodereadings.each do |r|
+                    nodereadings.each do |r|
                         csv << [ r[:created_at].localtime.strftime("%m/%d/%Y %I:%M %p"), r[:node_id], r[:soil1], r[:soil2], r[:soil3], r[:temp] ]
                     end
                 end

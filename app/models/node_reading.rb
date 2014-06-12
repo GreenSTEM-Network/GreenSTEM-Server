@@ -12,7 +12,7 @@ class NodeReading < ActiveRecord::Base
   end
 
   def local_created_at
-    created_at.localtime.strftime("%m/%d/%Y %I:%M %p")  
+    created_at.strftime("%m/%d/%Y %I:%M %p")  
   end
 
   def site_name

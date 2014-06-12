@@ -76,6 +76,9 @@ module SolarSunflower
             end
         end
 
+        config.time_zone = 'Eastern Time (US & Canada)'
+        config.active_record.default_timezone = 'Eastern Time (US & Canada)'
+
         ForecastIO.configure do |configuration|
             configuration.api_key =  ENV['FORECAST_IO_API_KEY']
         end

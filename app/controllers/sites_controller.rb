@@ -21,9 +21,10 @@ class SitesController < ApplicationController
             nodereadings.delete_if {|r| r[:created_at].to_date > end_date}
         end
 
-        nodereadings = nodereadings.sort_by(&:created_at).reverse
+        nodereadings = nodereadings.sort_by(&:created_at)
+        nodereadings_newestfirst = nodereadings.reverse
 
-        @readings = Kaminari.paginate_array(nodereadings).page(params[:page]).per(30)
+        @readings = Kaminari.paginate_array(nodereadings_newestfirst).page(params[:page]).per(30)
 
         @graph_data = [
             {name: 'Soil 1', data: @readings.map{|r| [ r[:created_at], BigDecimal.new(r[:soil1])]}},
@@ -39,7 +40,7 @@ class SitesController < ApplicationController
                     csv << ['CreatedAt', 'NodeId', 'Soil1', 'Soil2', 'Soil3', 'Temp']
                     #data
                     nodereadings.each do |r|
-                        csv << [ r[:created_at].localtime.strftime("%m/%d/%Y %I:%M %p"), r[:node_id], r[:soil1], r[:soil2], r[:soil3], r[:temp] ]
+                        csv << [ r.local_created_at, r[:node_id], r[:soil1], r[:soil2], r[:soil3], r[:temp] ]
                     end
                 end
                 send_data csv

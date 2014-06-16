@@ -7,6 +7,14 @@ class NodeReading < ActiveRecord::Base
 
   include_root_in_json = true
 
+  def self.latest_reading_ids
+    group(:node_id).maximum(:id).keys
+  end
+
+  def self.latest_readings
+    find(latest_reading_ids)
+  end
+
   def as_json(options = {})
     super({methods: [:site_name, :site_id, :converted_values, :average_status_name, :status_names, :temp, :voltage, :local_created_at]})
   end
@@ -43,14 +51,16 @@ class NodeReading < ActiveRecord::Base
 
   def self.node_value_to_status_name(node, value, soil_type)
     if node.disabled?
-        'GREY'
-      elsif value >= soil_type.moist_threshold
-        'GREEN'
-      elsif value >= soil_type.wilting_threshold
-        'YELLOW'
-      else 
-        'RED'
-      end
+      'GREY'
+    elsif soil_type.nil?
+      'GREY'
+    elsif value >= soil_type.moist_threshold
+      'GREEN'
+    elsif value >= soil_type.wilting_threshold
+      'YELLOW'
+    else 
+      'RED'
+    end
   end
 
   def average_status_name

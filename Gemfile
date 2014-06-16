@@ -13,12 +13,12 @@ group :test, :development do
   gem 'launchy', '~> 2.2.0'
   gem 'capybara', '~> 2.0.2'
   gem 'factory_girl_rails', '~> 4.2.0'  
+  gem 'debugger'
 end
 
 group :development do
   gem 'better_errors', '~> 0.6.0'
   gem 'binding_of_caller', '~> 0.7.1'
-  gem 'debugger'
 end
 
 group :test do
